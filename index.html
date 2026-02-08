@@ -98,37 +98,20 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Top Navbar -->
-            <nav class="navbar">
-                <h1 class="page-title">Dashboard Overview</h1>
-                <div class="navbar-right">
-                    <button class="nav-btn" id="theme-toggle" title="Toggle Light/Dark Mode">
-                        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="4"/>
-                            <path d="M12 2v2"/><path d="M12 20v2"/>
-                            <path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/>
-                            <path d="M2 12h2"/><path d="M20 12h2"/>
-                            <path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/>
-                        </svg>
-                        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                        </svg>
-                    </button>
-                </div>
-            </nav>
-
             <!-- Stats Cards -->
             <section class="stats-grid">
                 <div class="glass-card glass-card-3d stat-card">
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Average Pricing</h3>
-                            <div class="stat-value">25000</div>
-                            <span class="stat-change positive">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
-                                +12.5%
+                            <div id="avgPrice" class="stat-value">—</div>
+                            <span id="priceStability" class="stat-change">
+                                <svg id="stabilityIcon" width="14" height="14" viewBox="0 0 24 24"
+                                     fill="none" stroke="currentColor" stroke-width="2"></svg>
+                                <span id="stabilityText"></span>
                             </span>
                         </div>
+
                         <div class="stat-icon cyan">
                            <svg fill="#33c992" width="256px" height="256px" viewBox="0 0 24.00 24.00" xmlns="http://www.w3.org/2000/svg" stroke="#33c992" stroke-width="0.43200000000000005" transform="matrix(1, 0, 0, 1, 0, 0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.048"></g><g id="SVGRepo_iconCarrier"> <path d="M12.9494914,6 C13.4853936,6.52514205 13.8531598,7.2212202 13.9645556,8 L17.5,8 C17.7761424,8 18,8.22385763 18,8.5 C18,8.77614237 17.7761424,9 17.5,9 L13.9645556,9 C13.7219407,10.6961471 12.263236,12 10.5,12 L7.70710678,12 L13.8535534,18.1464466 C14.0488155,18.3417088 14.0488155,18.6582912 13.8535534,18.8535534 C13.6582912,19.0488155 13.3417088,19.0488155 13.1464466,18.8535534 L6.14644661,11.8535534 C5.83146418,11.538571 6.05454757,11 6.5,11 L10.5,11 C11.709479,11 12.7183558,10.1411202 12.9499909,9 L6.5,9 C6.22385763,9 6,8.77614237 6,8.5 C6,8.22385763 6.22385763,8 6.5,8 L12.9499909,8 C12.7183558,6.85887984 11.709479,6 10.5,6 L6.5,6 C6.22385763,6 6,5.77614237 6,5.5 C6,5.22385763 6.22385763,5 6.5,5 L10.5,5 L17.5,5 C17.7761424,5 18,5.22385763 18,5.5 C18,5.77614237 17.7761424,6 17.5,6 L12.9494914,6 L12.9494914,6 Z"></path> </g></svg>
                         </div>
@@ -138,11 +121,7 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Average Ratings</h3>
-                            <div class="stat-value">24,521</div>
-                            <span class="stat-change positive">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
-                                +8.2%
-                            </span>
+                            <div id = "avgrating" class="stat-value">—</div>
                         </div>
                         <div class="stat-icon magenta">
                             <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2">
@@ -157,10 +136,10 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Average Sales</h3>
-                            <div class="stat-value">8,461</div>
-                            <span class="stat-change negative">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
-                                -3.1%
+                            <div id="avgsales" class="stat-value"></div>
+                            <span id ="sales_state" class="stat-change">
+                                <svg id = "salesicon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg>
+                                <span id="salesinference"></span>
                             </span>
                         </div>
                         <div class="stat-icon purple">
@@ -176,10 +155,9 @@
                     <div class="stat-card-inner">
                         <div class="stat-info">
                             <h3>Demand Index</h3>
-                            <div class="stat-value">120</div>
-                            <span class="stat-change positive">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
-                                24
+                            <div id = "demandval" class="stat-value"></div>
+                            <span id = "demandstate"class="stat-change">
+                                Score Out of 100
                             </span>
                         </div>
                         <div class="stat-icon success">
@@ -205,45 +183,32 @@
                         <canvas id="chart-google"></canvas>
                     </div>
                 </div>
-
                 
-            </section>
+                <!-- Data Table -->
+      <div class="glass-card table-card">
+    <div class="card-header">
+        <div>
+            <h2 class="card-title">Products Fetched</h2>
+            <p class="card-subtitle">Across Flipkart and Amazon</p>
+        </div>
+    </div>
 
-            <!-- Bottom Grid -->
-            <section class="bottom-grid">
-            
+    <div class="table-wrapper">
+        <table id="amzflip">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Rating</th>
+                    <th>Price</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
 
-                <!-- Donut Chart -->
-                <div class="glass-card">
-                    <div class="card-header">
-                        <div>
-                            <h2 class="card-title">Traffic Sources</h2>
-                            <p class="card-subtitle">User acquisition breakdown</p>
-                        </div>
-                    </div>
-                    <div class="donut-container">
-                        <div class="donut-chart">
-                            <svg width="140" height="140" viewBox="0 0 140 140">
-                                <circle class="donut-bg" cx="70" cy="70" r="54"/>
-                                <circle class="donut-segment" cx="70" cy="70" r="54" stroke="var(--emerald-light)" stroke-dasharray="169.6 339.3" stroke-dashoffset="0"/>
-                                <circle class="donut-segment" cx="70" cy="70" r="54" stroke="var(--gold)" stroke-dasharray="101.8 339.3" stroke-dashoffset="-169.6"/>
-                                <circle class="donut-segment" cx="70" cy="70" r="54" stroke="var(--coral)" stroke-dasharray="67.9 339.3" stroke-dashoffset="-271.4"/>
-                            </svg>
-                            
-                            <div class="donut-center">
-                                <div class="donut-value">24.5K</div>
-                                <div class="donut-label">Visitors</div>
-                            </div>
-                        </div>
-                        <div class="donut-legend">
-                            <div class="legend-item"><span class="legend-color cyan"></span><span>Organic Search (50%)</span></div>
-                            <div class="legend-item"><span class="legend-color magenta"></span><span>Social Media (30%)</span></div>
-                            <div class="legend-item"><span class="legend-color purple"></span><span>Direct Traffic (20%)</span></div>
-                        </div>
-                    </div>
-                </div>
 
-                
             </section>
         </main>
     </div>
@@ -261,8 +226,5 @@
     </footer>
 
     <script src="scriptmain.js"></script>
-
 </body>
 </html>
-
-
